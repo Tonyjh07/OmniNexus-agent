@@ -1,0 +1,27 @@
+{
+  "module_id": "omninexus",
+  "name": "LLM 编排核心 · OmniNexus",
+  "version": "0.2.0",
+  "category": "core",
+  "entry": {
+    "type": "command",
+    "command": "python -m omninexus",
+    "working_dir": ".",
+    "env": {
+      "OMNI_PORT": "8102",
+      "OMNI_DATA_DIR": "{data_dir}/omninexus"
+    },
+    "health": { "url": "http://127.0.0.1:8102/v1/healthz", "timeout_ms": 3000 }
+  },
+  "compat": { "app_version": ">=0.1.0" },
+  "dependencies": [
+    { "name": "Python", "version": ">=3.11", "type": "runtime" }
+  ],
+  "model_packs": [],
+  "permissions": {
+    "network": [],
+    "filesystem": ["{data_dir}/omninexus", "{repo}"],
+    "devices": []
+  },
+  "signature": { "algo": "SHA-256 + Ed25519", "value": "" }
+}
